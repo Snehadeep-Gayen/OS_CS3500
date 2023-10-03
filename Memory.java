@@ -1,16 +1,16 @@
 import java.util.*;
 
 class Memory{
-    byte[] arr;
+    int[] arr;
     int bound;
 
     public Memory(int size){
         // initialise an array of size (all zeroes)
-        arr = new byte[size];
+        arr = new int[size];
         bound = size;
     }
         
-    public byte read(int loc){
+    public int read(int loc){
         if(loc<0 || loc>bound){
             System.out.println("Invalid Physical Memory Location");
             return 0;
@@ -18,13 +18,13 @@ class Memory{
         return arr[loc];
     }
 
-    public void write(int loc, byte data){
+    public void write(int loc, int data){
         if(loc<0 || loc>bound){
             System.out.println("Invalid Physical Memory Location");
             return;
         }
-        if(Global.debug)
-            System.out.println("Debug is ON");
+//        if(Global.debug)
+//            System.out.println("Debug is ON");
         arr[loc] = data;
     }
 

@@ -1,0 +1,30 @@
+file1 is loaded in physical memory and is assigned process id 1
+file2 is loaded in physical memory and is assigned process id 2
+file3 is loaded in physical memory and is assigned process id 3
+Running process 3
+Command: load 13 1003; Result: Value of 13 is stored in addr 1003
+Command: load 33 3003; Result: Value of 33 is stored in addr 3003
+Command: sub 1003 3003 3005 Result: Value in addr x = 13, y = 33, z = 46
+Command: print x; Result: Value in addr x = 3005
+Command: print x; Result: Value in addr x = 10000
+Running process 1
+Command: load 11 1001; Result: Value of 11 is stored in addr 1001
+Command: load 21 2001; Result: Value of 21 is stored in addr 2001
+Command: sub 1001 2001 3001 Result: Value in addr x = 11, y = 21, z = 32
+Command: print x; Result: Value in addr x = 3000
+Command: print x; Result: Value in addr x = 3001
+Run: Invalid PID
+Processes in Main Memory
+1
+2
+3
+Processes in Virtual Memory
+**********************************
+Swapout: Process not in Physical Memory
+Processes in Main Memory
+1
+3
+Processes in Virtual Memory
+2
+**********************************
+Exiting...

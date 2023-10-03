@@ -3,7 +3,7 @@ import java.io.*;
 
 class Global{
 
-    static boolean debug = true;
+    static boolean debug = false;
     protected static BufferedWriter outputFile;
     protected static BufferedReader inputFile;
     protected static Memory pmem;
@@ -11,6 +11,13 @@ class Global{
     protected static int pageSize;
 
     public static void main(String[] args) throws Exception{
+
+        // IMPORTANT VARIABLES //
+        Memory pmem;
+        Memory vmem;
+        int pageSize = -1;
+        ////////////////////////
+
         int memorySize = 0;
         int vmemSize = 0;
         String inputFileName = null;
@@ -38,7 +45,7 @@ class Global{
         
         if(debug){
 	        System.out.println("Memory Size: " + memorySize);
-	        System.out.println("Video Memory: " + vmemSize);
+	        System.out.println("Virtual Memory: " + vmemSize);
 	        System.out.println("Process Count: " + pageSize);
 	        System.out.println("Input File: " + inputFileName);
 	        System.out.println("Output File: " + outputFileName);
@@ -50,13 +57,10 @@ class Global{
         // declare a Virtual Memory of input size
         vmem = new Memory(vmemSize*1024);
 
-        // Open the input file for reading
-        inputFile = new BufferedReader(new FileReader(inputFileName));
+        OS s = new OS(pmem, vmem, pageSize);
 
-        // Open the output file for writing
-        outputFile = new BufferedWriter(new FileWriter(outputFileName));
-        // create an OS
-        OS s = new OS();
+        Commander comm = new Commander(inputFileName, outputFileName, s);
 
+        comm.executeCommands();
     }
 }

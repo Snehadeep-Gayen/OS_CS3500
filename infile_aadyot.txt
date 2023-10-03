@@ -1,0 +1,14 @@
+load file1 file2 file3
+run 1
+run 3
+run 2
+swapout 2
+listpr
+run 1
+load file4
+run 4
+swapin 2
+listpr
+print 1001 2
+print 2001 2
+pteall outfilepte_aadyot.txt

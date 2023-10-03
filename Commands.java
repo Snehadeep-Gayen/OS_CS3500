@@ -26,6 +26,11 @@ public class Commands {
         return Integer.parseInt(commandsList.get(0));
     }
 
+    public String getFirstCommand(){
+        commandNumber = 1;
+        return getNextCommand();
+    }
+
     public String getNextCommand(){
         if(commandNumber>=commandsList.size())
             return null;

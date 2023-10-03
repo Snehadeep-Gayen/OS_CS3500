@@ -1,0 +1,7 @@
+  load file1 file2 file3
+  run 3
+  run 1
+  run 4
+  listpr
+  swapout 2
+  listpr
