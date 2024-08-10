@@ -1,0 +1,4 @@
+Answer: Boost time = 200ms
+Command: .\mlfq.py -B 200 -q 10 -S
+Example: .\mlfq.py -n 3 -B 200 -q 10 -j 3 --jlist=0,800,1:0,800,1:0,50,0 -i 1 -c -S
+Working: Starving process gets 10ms (Round robin time) in every boost period S. Therefore 10/S = 5% => S = 200
